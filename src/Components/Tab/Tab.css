@@ -5,6 +5,7 @@
 }
 .tab-menu button {
     padding: 10px 20px;
+    margin: 0;
     background: none;
     border: 1px solid lightgray;
     border-left: none;
