@@ -10,7 +10,6 @@ const Opener = styled.button`
   box-sizing: border-box;
   margin-right: 10px;
 `;
-
 const Outer = styled.div`
   position: fixed;
   top: 0;
@@ -22,24 +21,20 @@ const Outer = styled.div`
   align-items: center;
   background: rgba(0, 0, 0, 0.9);
 `;
-
 const Popup = styled.div`
   position: relative;
   width: 400px;
   border: 1px solid lightgray;
   background: #fff;
 `;
-
 const Header = styled.div`
   padding: 20px;
   font-size: 24px;
   font-weight: 600;
 `;
-
 const Body = styled.div`
   padding: 20px;
 `;
-
 const Closer = styled.button`
   position: absolute;
   top: 10px;
@@ -47,6 +42,7 @@ const Closer = styled.button`
   background: none;
   border: none;
 `;
+
 const modals = [
   {
     title: `Modal One`,
@@ -93,11 +89,11 @@ export default () => {
     <>
       {modals.map((modal, idx) => (
         <span key={idx}>
-          <Opener onClick={() => handleOpenModal("#modal1")}>
+          <Opener type='button' onClick={() => handleOpenModal(`#modal${idx}`)}>
             Open {modal.title}
           </Opener>
           <Outer className="modal-outer">
-            <Popup id="modal1">
+            <Popup id={`modal${idx}`}>
               <Header>{modal.title}</Header>
               <Body>{modal.content}</Body>
               <Closer onClick={handleCloseModal}>Close</Closer>

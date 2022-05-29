@@ -6,7 +6,7 @@ React로 개발된 UI 컴포넌트
 데모 : https://ui-components-umber.vercel.app
 
 ## 기술
-HTML, CSS, Javascript, React
+HTML, CSS, Javascript, React, Styled-components
 
 ## 기능
 - 체크박스 그룹
