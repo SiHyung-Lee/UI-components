@@ -2,7 +2,7 @@
 React로 개발된 UI 컴포넌트
 
 ## 개요
-웹에서 흔히 사용되는 UI를 React 프레임워크 기반으로 구현
+웹에서 흔히 사용되는 UI를 React 프레임워크 기반으로 구현  
 데모 : https://ui-components-umber.vercel.app
 
 ## 기술
