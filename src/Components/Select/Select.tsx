@@ -5,7 +5,7 @@ import "./Select.css";
 
 const items = ["Select One", "Select Two", "Select Three"];
 
-const useSelect = (initIndex, allSelect) => {
+const useSelect = (initIndex: number, allSelect: string[]) => {
     const [currentIndex, setCurrentIndex] = useState(initIndex);
     return {
         currentItem: allSelect[currentIndex],
@@ -13,8 +13,8 @@ const useSelect = (initIndex, allSelect) => {
     };
 };
 
-const handleSelect = (e) => {
-    const selectContainer = e.target.closest(".select");
+const handleSelect = (event: any) => {
+    const selectContainer = event.target.closest(".select");
     selectContainer.classList.toggle("actived");
 };
 
