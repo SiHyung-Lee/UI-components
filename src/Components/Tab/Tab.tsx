@@ -16,7 +16,7 @@ const section = [
     },
 ];
 
-const useTabs = (initIndex, allTabs) => {
+const useTabs = (initIndex: number, allTabs: any) => {
     const [currentIndex, setCurrentIndex] = useState(initIndex);
     return {
         currentIndex,

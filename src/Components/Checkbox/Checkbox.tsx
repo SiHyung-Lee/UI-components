@@ -1,6 +1,6 @@
 import React from "react";
 
-export default (props) => {
+export default (props: any) => {
     const { label, id, value, onChange } = props;
     return (
         <span className='checkbox'>

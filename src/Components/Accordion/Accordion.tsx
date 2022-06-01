@@ -59,9 +59,9 @@ const items = [
     },
 ];
 
-const useAccordion = (initIndex, allAccordion) => {
+const useAccordion = (initIndex: number, allAccordion: object[]) => {
     const [currentIndex, setCurrentIndex] = useState(initIndex);
-    const changeItem = (index) => {
+    const changeItem = (index: number) => {
         setCurrentIndex(index);
     };
     return {

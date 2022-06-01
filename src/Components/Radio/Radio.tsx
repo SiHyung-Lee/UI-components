@@ -3,7 +3,7 @@ import "./Radio.css";
 
 const radioName = ["Radio One", "Radio Two", "Radio Three"];
 
-const useRadios = (initIndex, allRadio) => {
+const useRadios = (initIndex: number, allRadio: string[]) => {
     const [currentIndex, setCurrentIndex] = useState(initIndex);
     return {
         currentItem: allRadio[currentIndex],
