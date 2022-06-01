@@ -10,7 +10,7 @@ export default class Checkboxs extends React.Component {
 
     handleCurrentSelects = (label: never, value: string) => {
         let currentArray = this.state.currentSelects;
-
+        console.log(this);
         value
             ? currentArray.push(label)
             : currentArray.splice(currentArray.indexOf(label), 1);
@@ -29,7 +29,7 @@ export default class Checkboxs extends React.Component {
                         label={item}
                         key={idx}
                         id={idx}
-                        handleCurrentSelects={this.handleCurrentSelects}
+                        onChange={this.handleCurrentSelects}
                     />
                 ))}
                 <p className='current'>

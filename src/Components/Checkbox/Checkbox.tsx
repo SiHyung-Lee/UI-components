@@ -2,6 +2,7 @@ import React from "react";
 
 export default (props: any) => {
     const { label, id, value, onChange } = props;
+    console.log(props);
     return (
         <span className='checkbox'>
             <input
