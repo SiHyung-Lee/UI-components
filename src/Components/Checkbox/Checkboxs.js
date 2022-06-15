@@ -1,27 +1,27 @@
-import React from "react";
-import Checkbox from "./Checkbox";
-import "./Checkboxs.css";
+import React from 'react'
+import Checkbox from './Checkbox'
+import './Checkboxs.css'
 
 export default class Checkboxs extends React.Component {
     state = {
         currentSelects: [],
-        items: ["Checkbox One", "Checkbox Two", "Checkbox Three"],
-    };
+        items: ['Checkbox One', 'Checkbox Two', 'Checkbox Three'],
+    }
 
-    handleCurrentSelects = (label: never, value: string) => {
-        let currentArray = this.state.currentSelects;
-        console.log(this);
+    handleCurrentSelects = (label, value) => {
+        let currentArray = this.state.currentSelects
+        console.log(label)
         value
             ? currentArray.push(label)
-            : currentArray.splice(currentArray.indexOf(label), 1);
+            : currentArray.splice(currentArray.indexOf(label), 1)
 
         this.setState({
             currentSelects: currentArray,
-        });
-    };
+        })
+    }
 
     render() {
-        const { currentSelects, items } = this.state;
+        const { currentSelects, items } = this.state
         return (
             <div>
                 {items.map((item, idx) => (
@@ -29,14 +29,14 @@ export default class Checkboxs extends React.Component {
                         label={item}
                         key={idx}
                         id={idx}
-                        onChange={this.handleCurrentSelects}
+                        onChange={() => this.handleCurrentSelects(item, true)}
                     />
                 ))}
-                <p className='current'>
+                <p className="current">
                     <strong>Current Select :</strong>
                     {currentSelects.toString()}
                 </p>
             </div>
-        );
+        )
     }
 }
