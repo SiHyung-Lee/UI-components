@@ -1,42 +1,61 @@
-import React from 'react'
-import Checkbox from './Checkbox'
-import './Checkboxs.css'
+import React from "react";
+import Checkbox from "./Checkbox";
+import "./Checkboxs.css";
 
 export default class Checkboxs extends React.Component {
     state = {
         currentSelects: [],
-        items: ['Checkbox One', 'Checkbox Two', 'Checkbox Three'],
-    }
+        items: [
+            { title: "Checkbox One", value: false },
+            { title: "Checkbox Two", value: false },
+            { title: "Checkbox Three", value: false },
+        ],
+    };
 
-    handleCurrentSelects = (label, value) => {
-        let currentArray = this.state.currentSelects
-        console.log(label)
+    handleCurrentSelects = (label, id, value) => {
+        const thisElement = {
+            title: label,
+            id: id,
+            value: !value,
+        };
+        //console.log(this.state.items);
+        //console.log(thisElement);
+        const currentArray = this.state.currentSelects;
+
         value
             ? currentArray.push(label)
-            : currentArray.splice(currentArray.indexOf(label), 1)
+            : currentArray.splice(currentArray.indexOf(label), 1);
 
         this.setState({
             currentSelects: currentArray,
-        })
-    }
+            items: [thisElement, ...this.state.items],
+        });
+    };
 
     render() {
-        const { currentSelects, items } = this.state
+        const { currentSelects, items } = this.state;
         return (
             <div>
                 {items.map((item, idx) => (
                     <Checkbox
-                        label={item}
+                        label={item.title}
                         key={idx}
                         id={idx}
-                        onChange={() => this.handleCurrentSelects(item, true)}
+                        checked={item.value}
+                        onChange={() => {
+                            this.handleCurrentSelects(
+                                item.title,
+                                idx,
+                                item.value
+                            );
+                        }}
                     />
                 ))}
-                <p className="current">
+                <p className='current'>
                     <strong>Current Select :</strong>
                     {currentSelects.toString()}
                 </p>
             </div>
-        )
+        );
     }
 }
