@@ -1,26 +1,41 @@
-import React, { useState } from 'react'
-import Checkbox from './Checkbox'
-import './Checkboxs.css'
+import React, { useState, useEffect } from 'react';
+import Checkbox from './Checkbox';
+import './Checkboxs.css';
+
+const items = ['Checkbox One', 'Checkbox Two', 'Checkbox Three'];
 
 export default () => {
-    const [currentSelects, setCurrentSelects] = useState()
-    const [items, setItems] = useState([
-        'Checkbox One',
-        'Checkbox Two',
-        'Checkbox Three',
-    ])
+    const [selects, setSelects] = useState([]);
 
-    const handleCurrentSelects = () => {}
+    const updateSelects = (label, value) => {
+        let arraySelects = selects;
+
+        value
+            ? arraySelects.push(label)
+            : arraySelects.splice(arraySelects.indexOf(label), 1);
+
+        setSelects(arraySelects);
+        console.log(selects);
+    };
+
+    useEffect(() => {
+        //console.log(selects);
+    });
 
     return (
-        <div>
+        <div className="checkboxs">
             {items.map((item, idx) => (
-                <Checkbox label={item.title} key={idx} id={idx} />
+                <Checkbox
+                    label={item}
+                    key={idx}
+                    id={idx}
+                    updateSelects={updateSelects}
+                />
             ))}
             <p className="current">
                 <strong>Current Select :</strong>
-                {currentSelects.toString()}
+                {selects.toString()}
             </p>
         </div>
-    )
-}
+    );
+};

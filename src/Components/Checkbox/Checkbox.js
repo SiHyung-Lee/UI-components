@@ -1,12 +1,12 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 
-export default (props) => {
-    const [checked, setChecked] = useState()
-    const { label, id, onChange } = props
+export default ({ label, id, updateSelects }) => {
+    const [checked, setChecked] = useState(false);
 
     const handleChange = () => {
-        setChecked(!checked)
-    }
+        setChecked(!checked);
+        updateSelects(label, !checked);
+    };
 
     return (
         <span className="checkbox">
@@ -18,5 +18,5 @@ export default (props) => {
             />
             <label htmlFor={id}>{label}</label>
         </span>
-    )
-}
+    );
+};
