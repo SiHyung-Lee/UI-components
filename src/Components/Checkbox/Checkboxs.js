@@ -8,22 +8,17 @@ export default () => {
     const [selects, setSelects] = useState([]);
 
     const updateSelects = (label, value) => {
-        let arraySelects = selects;
+        let arraySelects = [...selects];
 
         value
             ? arraySelects.push(label)
             : arraySelects.splice(arraySelects.indexOf(label), 1);
 
         setSelects(arraySelects);
-        console.log(selects);
     };
 
-    useEffect(() => {
-        //console.log(selects);
-    });
-
     return (
-        <div className="checkboxs">
+        <div className="checkList">
             {items.map((item, idx) => (
                 <Checkbox
                     label={item}
